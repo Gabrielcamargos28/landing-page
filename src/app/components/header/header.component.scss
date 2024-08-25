@@ -1,0 +1,14 @@
+.app-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem
+}
+
+.box-img {
+    display: flex;
+    img {
+        height: 7rem;
+        width: 7rem;
+    }
+}
