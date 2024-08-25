@@ -4,7 +4,6 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { BtnPrimaryComponent } from '../btn-primary/btn-primary.component';
 import { NewsletterFormComponent } from '../newsletter-form/newsletter-form.component';
 import { BenefitComponent } from '../benefit/benefit.component';
-import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -15,15 +14,19 @@ import { FooterComponent } from '../footer/footer.component';
     NgOptimizedImage, 
     BtnPrimaryComponent,
     NewsletterFormComponent,
-    BenefitComponent,
-    FooterComponent
+    BenefitComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
 
-  conteudos = [
+  conteudos: Array<{
+    titulo: string,
+    texto: string,
+    link?: string,
+    lista?: { listaItem: string, textoItem: string, link?: string }[]
+  }> = [
     {
       titulo: 'Java',
       texto: 'Uma das linguagens de programação mais populares e amplamente utilizadas no desenvolvimento de sistemas web corporativos e de grande escala. Com sua forte tipagem e orientação a objetos, Java oferece uma base sólida para construir aplicações robustas e seguras.'
@@ -70,9 +73,10 @@ export class HomeComponent {
     {
       titulo: 'Comece a Desenvolver com Java',
       texto: 'Documentação Oficial',
+      link: 'https://docs.oracle.com/en/java/',
       lista: [
-        { listaItem: 'Sistemas Corporativos: ', textoItem: 'Encontre tutoriais e guias para começar com Spring Boot e Jakarta EE.' },
-        { listaItem: 'Microserviços: ', textoItem: 'Participe de fóruns e grupos de discussão para obter suporte e trocar conhecimentos.' },        
+        { listaItem: 'Sistemas Corporativos: ', textoItem: 'Encontre tutoriais e guias para começar com Spring Boot e Jakarta EE.', link: 'https://spring.io/guides' },
+        { listaItem: 'Microserviços: ', textoItem: 'Participe de fóruns e grupos de discussão para obter suporte e trocar conhecimentos.', link: 'https://microservices.io/' },       
       ]
     },
     {
